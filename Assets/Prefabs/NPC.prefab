@@ -103,6 +103,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1351507256047587810}
   - component: {fileID: 1351507256047587811}
+  - component: {fileID: 5906550461014841195}
+  - component: {fileID: 5291023845471752115}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -147,3 +149,34 @@ NavMeshAgent:
   m_BaseOffset: 0.23
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 2
+--- !u!114 &5906550461014841195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351507256047587820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbef1325f636734a81b5eedac984f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGoal: {x: 0, y: 0, z: 0}
+  currentGoalIndex: 0
+  minDistance: 2
+  delay: 500
+  readyToMove:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5291023845471752115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351507256047587820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6abe23c4c647ef4080828ad9d695966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

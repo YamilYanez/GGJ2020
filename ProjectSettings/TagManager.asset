@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - NPC
+  - Pot
   layers:
   - Default
   - TransparentFX

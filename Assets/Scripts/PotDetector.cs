@@ -27,6 +27,8 @@ public class PotDetector : MonoBehaviour
         GameObject closest = GetClosestPot(pots);
         if (closest) {
             onPotDetected.Invoke(closest);
+        } else {
+            onPotDetected.Invoke(null);
         }
     }
 

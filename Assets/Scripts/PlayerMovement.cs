@@ -1,26 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Controls controls;
+    // public Controls controls;
     Vector2 movementInput;
 
-    void Awake (){  
-        controls = new Controls();
-        controls.Player.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+    private void OnMove(InputValue val) {
+        movementInput = val.Get<Vector2>();
     }
 
-     void Update(){
-        var rb = GetComponent<Rigidbody>();
-        Vector3 newforce = new Vector3(movementInput.x,0,movementInput.y);
-        Quaternion rotation = Quaternion.LookRotation(newforce,Vector3.up);
-        transform.rotation= rotation;
-        rb.AddForce(newforce * 60);
-     }
-
-    void OnEnable(){
-        controls.Player.Enable();
+    void Update(){
+        Vector3 newForce = new Vector3(movementInput.x, 0, movementInput.y);
+        transform.Translate(newForce);
     }
 }

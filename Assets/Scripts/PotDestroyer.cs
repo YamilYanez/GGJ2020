@@ -2,33 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class PotDestroyer : MonoBehaviour
 {
-    Controls control;
-    public UnityEvent onPotDestroyed;
     public GameObject potToDestroy;
 
-    void Awake() {
-        control = new Controls();
-        // control.Player.Destroy.permformed += ctx => OnPotDestroyed();
-    }
-
-    void Start() {
-        if (onPotDestroyed == null) {
-            onPotDestroyed = new UnityEvent();
-        }
-    }
-
-    void OnPotDestroyed() {
+    private void OnBreak(InputValue val) {
         if (potToDestroy != null) {
-            // PotSpot potSpot = potToDestroy.GetComponent<PotSpot>();
-            // potSpot.Destroy();
-            onPotDestroyed.Invoke();
+            Debug.Log("AA");
+            PotSpotController potSpot = potToDestroy.GetComponent<PotSpotController>();
+            potSpot.Hit();
         } 
     }
 
-    void SetPotToDestroy(GameObject potToDestroy) {
+    public void SetPotToDestroy(GameObject potToDestroy) {
         this.potToDestroy = potToDestroy;
     }
 }

@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Destroy",
+                    "name": "Break",
                     "type": "Button",
                     "id": "a3f9d376-3901-4685-88ef-3be509ab275a",
                     "expectedControlType": "Button",
@@ -197,7 +197,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Destroy",
+                    "action": "Break",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -208,7 +208,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Destroy",
+                    "action": "Break",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

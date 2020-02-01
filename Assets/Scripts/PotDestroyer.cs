@@ -11,7 +11,7 @@ public class PotDestroyer : MonoBehaviour
 
     void Awake() {
         control = new Controls();
-        control.Player.Destroy.permformed += ctx => OnPotDestroyed();
+        // control.Player.Destroy.permformed += ctx => OnPotDestroyed();
     }
 
     void Start() {
@@ -22,7 +22,7 @@ public class PotDestroyer : MonoBehaviour
 
     void OnPotDestroyed() {
         if (potToDestroy != null) {
-            PotSpot potSpot = potToDestroy.GetComponent<PotSpot>();
+            // PotSpot potSpot = potToDestroy.GetComponent<PotSpot>();
             // potSpot.Destroy();
             onPotDestroyed.Invoke();
         } 

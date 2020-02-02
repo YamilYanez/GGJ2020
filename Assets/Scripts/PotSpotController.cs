@@ -22,7 +22,10 @@ public class PotSpotController : MonoBehaviour
     public KeyCode destroyTestKey = KeyCode.O;
     public KeyCode craftTestKey = KeyCode.P;
     public PotModels models;
-    private PotType type;
+    public PotType type {
+        get;
+        private set;
+    }
     public ParticleSystem pSystem;
     // Start is called before the first frame update
     void Start()

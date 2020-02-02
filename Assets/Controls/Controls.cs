@@ -51,7 +51,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Destroy"",
+                    ""name"": ""Break"",
                     ""type"": ""Button"",
                     ""id"": ""a3f9d376-3901-4685-88ef-3be509ab275a"",
                     ""expectedControlType"": ""Button"",
@@ -210,7 +210,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Destroy"",
+                    ""action"": ""Break"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -221,7 +221,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Destroy"",
+                    ""action"": ""Break"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -800,7 +800,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Repair1 = m_Player.FindAction("Repair1", throwIfNotFound: true);
         m_Player_Repair2 = m_Player.FindAction("Repair2", throwIfNotFound: true);
         m_Player_Repair3 = m_Player.FindAction("Repair3", throwIfNotFound: true);
-        m_Player_Destroy = m_Player.FindAction("Destroy", throwIfNotFound: true);
+        m_Player_Break = m_Player.FindAction("Break", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -867,7 +867,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Repair1;
     private readonly InputAction m_Player_Repair2;
     private readonly InputAction m_Player_Repair3;
-    private readonly InputAction m_Player_Destroy;
+    private readonly InputAction m_Player_Break;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -876,7 +876,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Repair1 => m_Wrapper.m_Player_Repair1;
         public InputAction @Repair2 => m_Wrapper.m_Player_Repair2;
         public InputAction @Repair3 => m_Wrapper.m_Player_Repair3;
-        public InputAction @Destroy => m_Wrapper.m_Player_Destroy;
+        public InputAction @Break => m_Wrapper.m_Player_Break;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -898,9 +898,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Repair3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRepair3;
                 @Repair3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRepair3;
                 @Repair3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRepair3;
-                @Destroy.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDestroy;
-                @Destroy.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDestroy;
-                @Destroy.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDestroy;
+                @Break.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBreak;
+                @Break.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBreak;
+                @Break.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBreak;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -917,9 +917,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Repair3.started += instance.OnRepair3;
                 @Repair3.performed += instance.OnRepair3;
                 @Repair3.canceled += instance.OnRepair3;
-                @Destroy.started += instance.OnDestroy;
-                @Destroy.performed += instance.OnDestroy;
-                @Destroy.canceled += instance.OnDestroy;
+                @Break.started += instance.OnBreak;
+                @Break.performed += instance.OnBreak;
+                @Break.canceled += instance.OnBreak;
             }
         }
     }
@@ -1088,7 +1088,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnRepair1(InputAction.CallbackContext context);
         void OnRepair2(InputAction.CallbackContext context);
         void OnRepair3(InputAction.CallbackContext context);
-        void OnDestroy(InputAction.CallbackContext context);
+        void OnBreak(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

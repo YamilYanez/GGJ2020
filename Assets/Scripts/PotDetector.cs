@@ -12,6 +12,7 @@ public class PotDetector : MonoBehaviour
     Player player;
 
     public IntVariable[] scores;
+    public IntVariable[] totals;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,12 @@ public class PotDetector : MonoBehaviour
     }
 
     void Update() {
-        if (pots == null || pots.Length == 0) return;
+        if (pots == null || pots.Length == 0) {
+            if (Application.loadedLevelName != "Base") return;
+            else {
+                pots = GameObject.FindGameObjectsWithTag("Pot");
+            }
+        };
         GameObject closest = GetClosestPot(pots);
         if (closest != null) {
             bool isDestroyed = closest.GetComponent<PotSpotController>().type == PotType.None;
@@ -61,14 +67,24 @@ public class PotDetector : MonoBehaviour
         int score = 0;
         for (int i = 0; i < pots.Length; i++) {
             PotSpotController pot = pots[i].GetComponent<PotSpotController>();
-            Debug.Log(pot.owner);
-            Debug.Log(pot.type);
             if (player.playerIndex == (int)pot.owner && pot.type == potInTrend) {
                 score++;
             }
         }
-        Globals.Score.AddScoreToPlayer((PlayerType)player.playerIndex, score);
+        // Globals.Score.AddScoreToPlayer((PlayerType)player.playerIndex, score);
+        // Debug.Log(score);
+        totals[player.playerIndex].value = score;
         resetScores();
+    }
+
+    public void recalculateScore(PotType nextTrending) {
+        IntVariable myScore = scores[player.playerIndex];
+        for (int i = 0; i < pots.Length; i++) {
+            PotSpotController pot = pots[i].GetComponent<PotSpotController>();
+            if (player.playerIndex == (int)pot.owner && pot.type == nextTrending) {
+                myScore.value++;
+            }
+        }
     }
 
     public void resetScores() {

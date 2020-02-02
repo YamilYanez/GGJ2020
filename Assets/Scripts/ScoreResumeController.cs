@@ -12,6 +12,9 @@ public class ScoreResumeController : MonoBehaviour
 {
     public PlayerType type;
     public TextMesh textMesh;
+
+    public IntVariable total;
+
     public void Start()
     {
         // Globals.Score.AddScoreToPlayer(PlayerType.player1);
@@ -31,7 +34,9 @@ public class ScoreResumeController : MonoBehaviour
         // Globals.Score.AddScoreToPlayer(PlayerType.player4);
         // Globals.Score.AddScoreToPlayer(PlayerType.player4);
 
-
-        textMesh.text = Globals.Score.getScoreFromPlayer(type).ToString();
+        // Debug.Log(Globals.Score.getScoreFromPlayer(0));
+        // for (int i = 0; i < totals.Length; i++) {
+        textMesh.text = total.value.ToString();
+        // }
     }
 }

@@ -36,7 +36,7 @@ public class Score
     }
 }
 
-public static class Globals 
+public static class Globals
 {
     public static Score Score { get; set; } = new Score();
     public static int playerIndex = 0;

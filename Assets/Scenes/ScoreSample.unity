@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1101,7 +1101,7 @@ GameObject:
   - component: {fileID: 1316307881}
   - component: {fileID: 1316307880}
   m_Layer: 0
-  m_Name: New Text (6)
+  m_Name: Score Player 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1121,6 +1121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   textMesh: {fileID: 1316307881}
+  total: {fileID: 11400000, guid: e69357cd2a8d1e447ae47770b7317468, type: 2}
 --- !u!102 &1316307881
 TextMesh:
   serializedVersion: 3
@@ -1209,7 +1210,7 @@ GameObject:
   - component: {fileID: 1468729455}
   - component: {fileID: 1468729454}
   m_Layer: 0
-  m_Name: New Text (5)
+  m_Name: Score Player 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1229,6 +1230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   textMesh: {fileID: 1468729455}
+  total: {fileID: 11400000, guid: 079f0951e1c15d5479a19e8120244e97, type: 2}
 --- !u!102 &1468729455
 TextMesh:
   serializedVersion: 3
@@ -1317,7 +1319,7 @@ GameObject:
   - component: {fileID: 1746291193}
   - component: {fileID: 1746291192}
   m_Layer: 0
-  m_Name: New Text (7)
+  m_Name: Score Player 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1337,6 +1339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   textMesh: {fileID: 1746291193}
+  total: {fileID: 11400000, guid: 1d8a5d024d0e1f045addfd012dc447da, type: 2}
 --- !u!102 &1746291193
 TextMesh:
   serializedVersion: 3
@@ -1612,7 +1615,7 @@ GameObject:
   - component: {fileID: 2045998687}
   - component: {fileID: 2045998686}
   m_Layer: 0
-  m_Name: New Text (4)
+  m_Name: Score Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1632,6 +1635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   textMesh: {fileID: 2045998687}
+  total: {fileID: 11400000, guid: 74c634f573436d9468cb71bb57197387, type: 2}
 --- !u!102 &2045998687
 TextMesh:
   serializedVersion: 3

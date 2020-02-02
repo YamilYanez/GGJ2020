@@ -2401,6 +2401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f4457998283c942910cc4b5921d95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTrendings: 2
   trend: 0
   currentTrendDuration: 0
   onTrendChange:

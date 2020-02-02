@@ -30,6 +30,7 @@ public class PotSpotController : MonoBehaviour
     }
     public PotOwner owner;
     public ParticleSystem pSystem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,19 +38,6 @@ public class PotSpotController : MonoBehaviour
         type = defaultType;
         SetModel(type);
         owner = PotOwner.none;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(destroyTestKey))
-        {
-            Hit();
-        }
-        if (Input.GetKeyDown(craftTestKey))
-        {
-            Craft(craftDefaultType);
-        }
     }
 
     void SetModel(PotType type)
@@ -60,13 +48,14 @@ public class PotSpotController : MonoBehaviour
         models.Type3.SetActive(type == PotType.Type3);
     }
 
-    public PotSpotController Craft(PotType type)
+    public PotSpotController Craft(PotType type, int playerOwner)
     {
-        if (this.type == PotType.None)
-        {
-            SpawnParticles();
-            SetModel(type);
-        }
+        // if (this.type == PotType.None)
+        // {
+        SpawnParticles();
+        SetModel(type);
+        // }
+        owner = (PotOwner)playerOwner;
         return this;
     }
 

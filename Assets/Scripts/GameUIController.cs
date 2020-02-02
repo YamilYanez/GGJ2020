@@ -35,16 +35,16 @@ public class GameUIController : MonoBehaviour
     }
 
     void UpdatePots() {
-        potPlayer1.sprite = pots[0].sprites[trendingIndex.value];
-        potPlayer2.sprite = pots[1].sprites[trendingIndex.value];
-        potPlayer3.sprite = pots[2].sprites[trendingIndex.value];
-        potPlayer4.sprite = pots[3].sprites[trendingIndex.value];
+        potPlayer1.sprite = pots[0].sprites[Mathf.Max(0, trendingIndex.value)];
+        potPlayer2.sprite = pots[1].sprites[Mathf.Max(0, trendingIndex.value)];
+        potPlayer3.sprite = pots[2].sprites[Mathf.Max(0, trendingIndex.value)];
+        potPlayer4.sprite = pots[3].sprites[Mathf.Max(0, trendingIndex.value)];
     }
 
     void UpdateScores() {
-        potCountP1.sprite = numbers[potCountPlayer1.value];
-        potCountP2.sprite = numbers[potCountPlayer2.value];
-        potCountP3.sprite = numbers[potCountPlayer3.value];
-        potCountP4.sprite = numbers[potCountPlayer4.value];
+        potCountP1.sprite = numbers[Mathf.Max(0, potCountPlayer1.value)];
+        potCountP2.sprite = numbers[Mathf.Max(0, potCountPlayer2.value)];
+        potCountP3.sprite = numbers[Mathf.Max(0, potCountPlayer3.value)];
+        potCountP4.sprite = numbers[Mathf.Max(0, potCountPlayer4.value)];
     }
 }

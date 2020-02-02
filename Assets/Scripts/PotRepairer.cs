@@ -11,21 +11,21 @@ public class PotRepairer : MonoBehaviour
     private void OnRepair1(InputValue val) {
         if (potToRepair != null) {
             PotSpotController potSpot = potToRepair.GetComponent<PotSpotController>();
-            potSpot.Craft(PotType.Blue);
+            potSpot.Craft(PotType.Type1);
         } 
     }
 
     private void OnRepair2(InputValue val) {
         if (potToRepair != null) {
             PotSpotController potSpot = potToRepair.GetComponent<PotSpotController>();
-            potSpot.Craft(PotType.Green);
+            potSpot.Craft(PotType.Type2);
         } 
     }
 
     private void OnRepair3(InputValue val) {
         if (potToRepair != null) {
             PotSpotController potSpot = potToRepair.GetComponent<PotSpotController>();
-            potSpot.Craft(PotType.Red);
+            potSpot.Craft(PotType.Type3);
         } 
     }
 

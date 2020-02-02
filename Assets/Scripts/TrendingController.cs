@@ -3,16 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum PotInTrend {
-    Type1, Type2, Type3
-}
-
 [System.Serializable]
-public class OnTrendChangeEvent : UnityEvent<PotInTrend> { }
+public class OnTrendChangeEvent : UnityEvent<PotType> { }
 
 public class TrendingController : MonoBehaviour
 {
-    public PotInTrend trend;
+    public PotType trend;
     public int currentTrendDuration;
     public OnTrendChangeEvent onTrendChange;
     
@@ -26,7 +22,9 @@ public class TrendingController : MonoBehaviour
     }
 
     void SetTrend() {
-        trend = (PotInTrend)Random.Range(0, 3);
+        Debug.Log("SCORES");
+        Debug.Log(Globals.Score.getScoreFromPlayer(PlayerType.player1));
+        trend = (PotType)Random.Range(0, 3);
         currentTrendDuration = Random.Range(10, 30);
         onTrendChange.Invoke(trend);
     }
@@ -34,7 +32,17 @@ public class TrendingController : MonoBehaviour
     IEnumerator timer() {
         while(true) {
             yield return new WaitForSeconds(currentTrendDuration);
+            GetPlayersScore();
             SetTrend();
+        }
+    }
+
+    void GetPlayersScore() {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++) {
+            PotDetector potDetector = players[i].GetComponent<PotDetector>();
+            Debug.Log(trend);
+            potDetector.GetPlayerScore(trend);
         }
     }
 }

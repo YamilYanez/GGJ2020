@@ -14,22 +14,22 @@ public class ScoreResumeController : MonoBehaviour
     public TextMesh textMesh;
     public void Start()
     {
-        Globals.Score.AddScoreToPlayer(PlayerType.player1);
-        Globals.Score.AddScoreToPlayer(PlayerType.player1);
-        Globals.Score.AddScoreToPlayer(PlayerType.player1);
-        Globals.Score.AddScoreToPlayer(PlayerType.player1);
+        // Globals.Score.AddScoreToPlayer(PlayerType.player1);
+        // Globals.Score.AddScoreToPlayer(PlayerType.player1);
+        // Globals.Score.AddScoreToPlayer(PlayerType.player1);
+        // Globals.Score.AddScoreToPlayer(PlayerType.player1);
 
-        Globals.Score.AddScoreToPlayer(PlayerType.player2);
+        // Globals.Score.AddScoreToPlayer(PlayerType.player2);
 
-        Globals.Score.AddScoreToPlayer(PlayerType.player3);
-        Globals.Score.AddScoreToPlayer(PlayerType.player3);
-        Globals.Score.AddScoreToPlayer(PlayerType.player3);
-        Globals.Score.AddScoreToPlayer(PlayerType.player3);
-        Globals.Score.AddScoreToPlayer(PlayerType.player3);
+        // Globals.Score.AddScoreToPlayer(PlayerType.player3);
+        // Globals.Score.AddScoreToPlayer(PlayerType.player3);
+        // Globals.Score.AddScoreToPlayer(PlayerType.player3);
+        // Globals.Score.AddScoreToPlayer(PlayerType.player3);
+        // Globals.Score.AddScoreToPlayer(PlayerType.player3);
 
 
-        Globals.Score.AddScoreToPlayer(PlayerType.player4);
-        Globals.Score.AddScoreToPlayer(PlayerType.player4);
+        // Globals.Score.AddScoreToPlayer(PlayerType.player4);
+        // Globals.Score.AddScoreToPlayer(PlayerType.player4);
 
 
         textMesh.text = Globals.Score.getScoreFromPlayer(type).ToString();

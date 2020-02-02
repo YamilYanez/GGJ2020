@@ -9,9 +9,7 @@ public class PotDestroyer : MonoBehaviour
     public GameObject potToDestroy;
 
     private void OnBreak(InputValue val) {
-            Debug.Log(potToDestroy);
         if (potToDestroy != null) {
-            Debug.Log("AA");
             PotSpotController potSpot = potToDestroy.GetComponent<PotSpotController>();
             potSpot.Hit();
         }

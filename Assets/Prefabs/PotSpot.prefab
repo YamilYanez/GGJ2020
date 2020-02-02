@@ -334,9 +334,10 @@ MonoBehaviour:
   destroyTestKey: 111
   craftTestKey: 112
   models:
-    Red: {fileID: 6383590760670442079}
-    Blue: {fileID: 5070601374770134422}
-    Green: {fileID: 8200072649455056336}
+    Type1: {fileID: 6383590760670442079}
+    Type2: {fileID: 5070601374770134422}
+    Type3: {fileID: 8200072649455056336}
+  owner: 0
   pSystem: {fileID: 358937013068901464}
 --- !u!198 &358937013068901464
 ParticleSystem:

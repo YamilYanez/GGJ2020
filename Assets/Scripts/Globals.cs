@@ -15,21 +15,23 @@ public class PlayerScore
 public class Score
 {
     private Dictionary<PlayerType, int> score = new Dictionary<PlayerType, int>();
-    
+       
     public void Reset()
     {
         score = new Dictionary<PlayerType, int>();
     }
 
-    public void AddScoreToPlayer(PlayerType player)
+    public void AddScoreToPlayer(PlayerType player, int points)
     {
         if (!score.ContainsKey(player))
             score.Add(player, 0);
-        score[player]++;
+        score[player] += points;
     }
 
     public int getScoreFromPlayer(PlayerType player)
     {
+        Debug.Log(score);
+        if (!score.ContainsKey(player)) return -1;
         return score[player];
     }
 }
@@ -37,4 +39,5 @@ public class Score
 public static class Globals 
 {
     public static Score Score { get; set; } = new Score();
+    public static int playerIndex = 0;
 }

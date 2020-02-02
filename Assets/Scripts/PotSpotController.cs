@@ -5,20 +5,22 @@ using UnityEngine;
 
 public enum PotType
 {
-    Red, Blue, Green, None
+    Type1, Type2, Type3, None
+}
+public enum PotOwner {
+    none = -1, player1 = 0, player2, player3, player4
 }
 [System.Serializable]
 public class PotModels
 {
-    public GameObject Red, Blue, Green;
+    public GameObject Type1, Type2, Type3;
 }
-
 public class PotSpotController : MonoBehaviour
 {
     public int durability = 2;
     private int hitPoints;
-    public PotType defaultType = PotType.Red;
-    public PotType craftDefaultType = PotType.Blue;
+    public PotType defaultType = PotType.Type1;
+    public PotType craftDefaultType = PotType.Type2;
     public KeyCode destroyTestKey = KeyCode.O;
     public KeyCode craftTestKey = KeyCode.P;
     public PotModels models;
@@ -26,6 +28,7 @@ public class PotSpotController : MonoBehaviour
         get;
         private set;
     }
+    public PotOwner owner;
     public ParticleSystem pSystem;
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,7 @@ public class PotSpotController : MonoBehaviour
         hitPoints = durability;
         type = defaultType;
         SetModel(type);
+        owner = PotOwner.none;
     }
 
     // Update is called once per frame
@@ -51,9 +55,9 @@ public class PotSpotController : MonoBehaviour
     void SetModel(PotType type)
     {
         this.type = type;
-        models.Red.SetActive(type == PotType.Red);
-        models.Green.SetActive(type == PotType.Green);
-        models.Blue.SetActive(type == PotType.Blue);
+        models.Type1.SetActive(type == PotType.Type1);
+        models.Type2.SetActive(type == PotType.Type2);
+        models.Type3.SetActive(type == PotType.Type3);
     }
 
     public PotSpotController Craft(PotType type)
@@ -68,6 +72,7 @@ public class PotSpotController : MonoBehaviour
 
     public void Hit()
     {
+        
         if (type != PotType.None)
         {
             hitPoints--;

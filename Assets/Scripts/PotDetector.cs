@@ -9,13 +9,15 @@ public class PotDetector : MonoBehaviour
     GameObject[] pots;
     PotDestroyer potDestroyer;
     PotRepairer potRepairer;
+    Player player;
 
     // Start is called before the first frame update
     void Start()
     {
         pots = GameObject.FindGameObjectsWithTag("Pot");
         potDestroyer = GetComponent<PotDestroyer>();
-        potRepairer = GetComponent<PotRepairer>();  
+        potRepairer = GetComponent<PotRepairer>();
+        player = GetComponent<Player>();
     }
 
     void Update() {
@@ -23,9 +25,7 @@ public class PotDetector : MonoBehaviour
         GameObject closest = GetClosestPot(pots);
         if (closest != null) {
             bool isDestroyed = closest.GetComponent<PotSpotController>().type == PotType.None;
-            Debug.Log(isDestroyed);
             if (!isDestroyed) {
-                Debug.Log(closest);
                 potDestroyer.SetPotToDestroy(closest);
             } else {
                 potRepairer.SetPotToRepair(closest);
@@ -52,5 +52,18 @@ public class PotDetector : MonoBehaviour
             }
         }
         return bestTarget;
+    }
+
+    public void GetPlayerScore(PotType potInTrend) {
+        int score = 0;
+        for (int i = 0; i < pots.Length; i++) {
+            PotSpotController pot = pots[i].GetComponent<PotSpotController>();
+            Debug.Log(pot.owner);
+            Debug.Log(pot.type);
+            if (player.playerIndex == (int)pot.owner && pot.type == potInTrend) {
+                score++;
+            }
+        }
+        Globals.Score.AddScoreToPlayer((PlayerType)player.playerIndex, score);
     }
 }

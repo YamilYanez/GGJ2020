@@ -15,28 +15,21 @@ public class ScoreResumeController : MonoBehaviour
 
     public IntVariable total;
 
+    public Transform origin;
+    public GameObject[] potsPrefabs;
+
+    bool once = false;
+
     public void Start()
     {
-        // Globals.Score.AddScoreToPlayer(PlayerType.player1);
-        // Globals.Score.AddScoreToPlayer(PlayerType.player1);
-        // Globals.Score.AddScoreToPlayer(PlayerType.player1);
-        // Globals.Score.AddScoreToPlayer(PlayerType.player1);
-
-        // Globals.Score.AddScoreToPlayer(PlayerType.player2);
-
-        // Globals.Score.AddScoreToPlayer(PlayerType.player3);
-        // Globals.Score.AddScoreToPlayer(PlayerType.player3);
-        // Globals.Score.AddScoreToPlayer(PlayerType.player3);
-        // Globals.Score.AddScoreToPlayer(PlayerType.player3);
-        // Globals.Score.AddScoreToPlayer(PlayerType.player3);
-
-
-        // Globals.Score.AddScoreToPlayer(PlayerType.player4);
-        // Globals.Score.AddScoreToPlayer(PlayerType.player4);
-
-        // Debug.Log(Globals.Score.getScoreFromPlayer(0));
-        // for (int i = 0; i < totals.Length; i++) {
         textMesh.text = total.value.ToString();
-        // }
+        StartCoroutine(potSpawner(500));
+    }
+
+    IEnumerator potSpawner(float delay) {
+        for (int i = 0; i < total.value; i++) {    
+            GameObject pot = Instantiate(potsPrefabs[Random.Range(0, 3)], origin.position, Quaternion.identity);
+            yield return new WaitForSeconds(delay * 0.001f);
+        }
     }
 }

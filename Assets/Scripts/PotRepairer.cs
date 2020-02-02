@@ -16,8 +16,6 @@ public class PotRepairer : MonoBehaviour
     }
 
     public void checkScore(PotType newPot) {
-        Debug.Log(newPot);
-        Debug.Log(trendingPot.value);
         if ((int)newPot == trendingPot.value) {
             scores[player.playerIndex].value++;
         }

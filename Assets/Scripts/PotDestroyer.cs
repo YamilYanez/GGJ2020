@@ -29,10 +29,6 @@ public class PotDestroyer : MonoBehaviour
             PotSpotController potSpot = potToDestroy.GetComponent<PotSpotController>();
             for (int i = 0; i < players.Length; i++) {
                 int playerIndex = players[i].GetComponent<Player>().playerIndex;
-                // Debug.Log("Player Index " + playerIndex);
-                // Debug.Log("Owner " + potSpot.owner);
-                // Debug.Log("Type " + potSpot.type);
-                // Debug.Log("Trending " + trendingIndex.value);
                 if (playerIndex == (int)potSpot.owner && potSpot.type == (PotType)trendingIndex.value) {
                     scores[playerIndex].value--;
                 }

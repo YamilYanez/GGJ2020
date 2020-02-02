@@ -11,6 +11,7 @@ public class TrendingController : MonoBehaviour
     public PotType trend;
     public int currentTrendDuration;
     public OnTrendChangeEvent onTrendChange;
+    public IntVariable trendingIndex;
     
     void Start() {
         if (onTrendChange == null) {
@@ -22,10 +23,9 @@ public class TrendingController : MonoBehaviour
     }
 
     void SetTrend() {
-        Debug.Log("SCORES");
-        Debug.Log(Globals.Score.getScoreFromPlayer(PlayerType.player1));
         trend = (PotType)Random.Range(0, 3);
         currentTrendDuration = Random.Range(10, 30);
+        trendingIndex.value = (int)trend;
         onTrendChange.Invoke(trend);
     }
 
@@ -41,7 +41,6 @@ public class TrendingController : MonoBehaviour
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         for (int i = 0; i < players.Length; i++) {
             PotDetector potDetector = players[i].GetComponent<PotDetector>();
-            Debug.Log(trend);
             potDetector.GetPlayerScore(trend);
         }
     }

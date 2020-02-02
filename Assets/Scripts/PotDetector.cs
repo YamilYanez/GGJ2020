@@ -11,6 +11,8 @@ public class PotDetector : MonoBehaviour
     PotRepairer potRepairer;
     Player player;
 
+    public IntVariable[] scores;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class PotDetector : MonoBehaviour
         potDestroyer = GetComponent<PotDestroyer>();
         potRepairer = GetComponent<PotRepairer>();
         player = GetComponent<Player>();
+        resetScores();
     }
 
     void Update() {
@@ -65,5 +68,12 @@ public class PotDetector : MonoBehaviour
             }
         }
         Globals.Score.AddScoreToPlayer((PlayerType)player.playerIndex, score);
+        resetScores();
+    }
+
+    public void resetScores() {
+        for (int i = 0; i < scores.Length; i++) {
+            scores[i].value = 0;
+        }
     }
 }

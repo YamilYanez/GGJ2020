@@ -30,8 +30,8 @@ public class GameUIController : MonoBehaviour
     public IntVariable potCountPlayer4;
 
      void Update() {
-         UpdatePots();
-         UpdateScores();
+        UpdatePots();
+        UpdateScores();
     }
 
     void UpdatePots() {

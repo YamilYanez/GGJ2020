@@ -52,6 +52,7 @@ public class PotDetector : MonoBehaviour
         Vector3 currentPosition = transform.position;
         foreach(GameObject potentialTarget in pots)
         {
+            if (potentialTarget == null) break;
             Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             if(dSqrToTarget < closestDistanceSqr && dSqrToTarget <= detectionRadius)
@@ -71,8 +72,6 @@ public class PotDetector : MonoBehaviour
                 score++;
             }
         }
-        // Globals.Score.AddScoreToPlayer((PlayerType)player.playerIndex, score);
-        // Debug.Log(score);
         totals[player.playerIndex].value = score;
         resetScores();
     }

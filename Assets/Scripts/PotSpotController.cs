@@ -30,6 +30,8 @@ public class PotSpotController : MonoBehaviour
     }
     public PotOwner owner;
     public ParticleSystem pSystem;
+    public AudioSource aSrcPotUncraft;
+    public AudioSource aSrcPotCraft;
 
     // Start is called before the first frame update
     void Start()
@@ -48,10 +50,23 @@ public class PotSpotController : MonoBehaviour
         models.Type3.SetActive(type == PotType.Type3);
     }
 
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(destroyTestKey))
+    //    {
+    //        Hit();
+    //    }
+    //    else if (Input.GetKeyDown(craftTestKey))
+    //    {
+    //        Craft(craftDefaultType, 1);
+    //    }
+    //}
+
     public PotSpotController Craft(PotType type, int playerOwner)
     {
         // if (this.type == PotType.None)
         // {
+        aSrcPotCraft.Play();
         SpawnParticles();
         SetModel(type);
         // }
@@ -80,6 +95,7 @@ public class PotSpotController : MonoBehaviour
 
     void Uncraft()
     {
+        aSrcPotUncraft.Play();
         SpawnParticles();
         SetModel(PotType.None);
     }
